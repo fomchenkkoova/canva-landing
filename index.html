@@ -543,19 +543,23 @@
     });
 
     // Демонстрационная форма
-    document.getElementById("demo-form").addEventListener("submit", function(event) {
-      event.preventDefault();
+document.getElementById("demo-form").addEventListener("submit", function(event) {
+  event.preventDefault();
 
-      window.dataLayer.push({
-        event: "demo_form_submit",
-        ab_variant: "A"
-      });
+  window.dataLayer.push({
+    event: "demo_form_submit",
+    ab_variant: "A"
+  });
 
-      document.getElementById("form-message").textContent =
-        "Спасибо! Это демонстрационная форма — данные никуда не отправляются.";
+  gtag('event', 'demo_form_submit', {
+    ab_variant: 'A'
+  });
 
-      this.reset();
-    });
+  document.getElementById("form-message").textContent =
+    "Спасибо! Это демонстрационная форма — данные никуда не отправляются.";
+
+  this.reset();
+});
   </script>
 
 </body>

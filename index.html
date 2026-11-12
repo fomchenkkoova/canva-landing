@@ -1,0 +1,420 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canva — твои идеи в дизайне</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f5ff;
+      color: #24213a;
+      transition: 0.3s;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 8%;
+      background: white;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #7054e8;
+    }
+
+    nav a {
+      margin-left: 20px;
+      color: #555;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .hero {
+      padding: 90px 8%;
+      text-align: center;
+      background: #eee9ff;
+    }
+
+    .label {
+      display: inline-block;
+      padding: 9px 16px;
+      border-radius: 30px;
+      background: white;
+      color: #7054e8;
+      margin-bottom: 25px;
+      font-size: 14px;
+    }
+
+    h1 {
+      max-width: 800px;
+      margin: 0 auto 22px;
+      font-size: clamp(36px, 6vw, 62px);
+      line-height: 1.1;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: 0 auto 30px;
+      color: #625d73;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .main-button {
+      display: inline-block;
+      border: none;
+      border-radius: 12px;
+      padding: 17px 28px;
+      background: #7054e8;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .main-button:hover {
+      opacity: 0.85;
+    }
+
+    .section {
+      padding: 65px 8%;
+      text-align: center;
+    }
+
+    .section h2 {
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+
+    .section-intro {
+      color: #777;
+      margin-bottom: 35px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .card {
+      background: white;
+      padding: 30px 20px;
+      border-radius: 18px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+    }
+
+    .card .emoji {
+      font-size: 38px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #777;
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    .form-section {
+      background: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 25px auto 0;
+    }
+
+    input {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 12px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 15px;
+    }
+
+    form button {
+      width: 100%;
+    }
+
+    #message {
+      margin-top: 18px;
+      color: #39834b;
+      font-weight: bold;
+    }
+
+    footer {
+      padding: 25px;
+      text-align: center;
+      color: #888;
+      font-size: 13px;
+    }
+
+    .variant-switch {
+      margin-top: 28px;
+      font-size: 14px;
+    }
+
+    .variant-switch a {
+      color: #7054e8;
+      margin: 0 8px;
+    }
+
+    /* Внешний вид варианта B */
+
+    body.variant-b {
+      background: #191919;
+      color: white;
+    }
+
+    .variant-b header,
+    .variant-b .card,
+    .variant-b .form-section {
+      background: #242424;
+    }
+
+    .variant-b .logo,
+    .variant-b .variant-switch a {
+      color: #d8ff3e;
+    }
+
+    .variant-b nav a {
+      color: #ddd;
+    }
+
+    .variant-b .hero {
+      background: #191919;
+    }
+
+    .variant-b .label {
+      background: #d8ff3e;
+      color: #191919;
+    }
+
+    .variant-b .hero p,
+    .variant-b .card p,
+    .variant-b .section-intro {
+      color: #c4c4c4;
+    }
+
+    .variant-b .main-button {
+      background: #d8ff3e;
+      color: #191919;
+    }
+
+    .variant-b input {
+      background: #333;
+      color: white;
+      border-color: #555;
+    }
+
+    .variant-b footer {
+      color: #aaa;
+    }
+
+    @media (max-width: 650px) {
+      header {
+        padding: 18px 5%;
+      }
+
+      nav a {
+        margin-left: 8px;
+        font-size: 12px;
+      }
+
+      .hero {
+        padding: 65px 6%;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 50px 6%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">Canva</div>
+    <nav>
+      <a href="#features">Возможности</a>
+      <a href="#contact">Попробовать</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="label" id="label">Дизайн без сложностей</div>
+
+      <h1 id="headline">
+        Красивый дизайн. Без опыта. За минуты.
+      </h1>
+
+      <p id="description">
+        Создавай презентации, посты и резюме с помощью готовых шаблонов.
+        Выбирай понравившийся дизайн и адаптируй его под себя.
+      </p>
+
+      <a href="#contact" class="main-button" id="cta">
+        Создать дизайн бесплатно
+      </a>
+
+      <div class="variant-switch">
+        Версия сайта:
+        <a href="?variant=a">A</a>
+        <a href="?variant=b">B</a>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <h2 id="section-title">Всё необходимое в одном месте</h2>
+      <p class="section-intro" id="section-intro">
+        Создавай визуальный контент для учёбы, работы и жизни.
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <div class="emoji">📊</div>
+          <h3>Презентации</h3>
+          <p>Оформляй учебные и рабочие проекты красиво и понятно.</p>
+        </div>
+
+        <div class="card">
+          <div class="emoji">📱</div>
+          <h3>Публикации</h3>
+          <p>Создавай яркие посты и истории для социальных сетей.</p>
+        </div>
+
+        <div class="card">
+          <div class="emoji">🎨</div>
+          <h3>Творчество</h3>
+          <p>Экспериментируй с цветами, шрифтами и собственными идеями.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="form-section" id="contact">
+      <h2 id="form-title">Попробуй создать свой первый дизайн</h2>
+      <p id="form-description">Оставь заявку в нашей учебной демонстрации.</p>
+
+      <form id="demo-form">
+        <input
+          type="text"
+          id="name"
+          placeholder="Твоё имя"
+          required
+        >
+
+        <input
+          type="email"
+          id="email"
+          placeholder="Твоя электронная почта"
+          required
+        >
+
+        <button class="main-button" type="submit" id="form-button">
+          Отправить заявку
+        </button>
+      </form>
+
+      <div id="message"></div>
+    </section>
+  </main>
+
+  <footer>
+    Учебный проект по Performance-аналитике.
+    Не является официальным сайтом Canva.
+  </footer>
+
+  <script>
+    // Определяем, какую версию сайта открыл посетитель
+    const params = new URLSearchParams(window.location.search);
+    const variant = params.get("variant") === "b" ? "b" : "a";
+
+    // Меняем текст и оформление для варианта B
+    if (variant === "b") {
+      document.body.classList.add("variant-b");
+
+      document.getElementById("label").textContent =
+        "Твоя идея — твои правила";
+
+      document.getElementById("headline").textContent =
+        "Твой вайб. Твои правила. Твой дизайн.";
+
+      document.getElementById("description").textContent =
+        "Превращай идеи в визуал, который цепляет. Создавай контент, экспериментируй со стилями и выражай себя.";
+
+      document.getElementById("cta").textContent =
+        "Прокачать свой визуал";
+
+      document.getElementById("section-title").textContent =
+        "Создавай визуал по своим правилам";
+
+      document.getElementById("section-intro").textContent =
+        "От первой идеи до дизайна, которым хочется поделиться.";
+
+      document.getElementById("form-title").textContent =
+        "Готова показать свой стиль?";
+
+      document.getElementById("form-description").textContent =
+        "Оставь заявку в нашей учебной демонстрации.";
+
+      document.getElementById("form-button").textContent =
+        "Начать творить";
+    }
+
+    // Фиксируем демонстрационную отправку формы
+    document.getElementById("demo-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value;
+
+      // Позже подключим Google Analytics и Яндекс Метрику
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "demo_form_submit",
+        ab_variant: variant
+      });
+
+      document.getElementById("message").textContent =
+        "Спасибо, " + name + "! Тестовая заявка отправлена.";
+
+      this.reset();
+    });
+
+    // Запоминаем вариант страницы для будущей аналитики
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "page_variant_view",
+      ab_variant: variant
+    });
+  </script>
+
+</body>
+</html>

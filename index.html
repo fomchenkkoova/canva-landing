@@ -1,11 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Canva — твои идеи в дизайне</title>
-
+  <title>Designly — Создавай красиво</title>
   <style>
     * {
       box-sizing: border-box;
@@ -15,9 +13,9 @@
 
     body {
       font-family: Arial, sans-serif;
-      background: #f7f5ff;
-      color: #24213a;
-      transition: 0.3s;
+      color: #28243a;
+      background: #ffffff;
+      line-height: 1.6;
     }
 
     header {
@@ -25,234 +23,286 @@
       justify-content: space-between;
       align-items: center;
       padding: 22px 8%;
-      background: white;
+      border-bottom: 1px solid #eeeaf5;
     }
 
     .logo {
-      font-size: 28px;
+      font-size: 25px;
       font-weight: bold;
-      color: #7054e8;
+      color: #7654d6;
     }
 
     nav a {
-      margin-left: 20px;
-      color: #555;
+      margin-left: 25px;
+      color: #514b60;
       text-decoration: none;
       font-size: 14px;
     }
 
     .hero {
-      padding: 90px 8%;
+      padding: 85px 8% 75px;
       text-align: center;
-      background: #eee9ff;
+      background: linear-gradient(135deg, #f8f5ff, #ffffff);
     }
 
-    .label {
+    .tag {
       display: inline-block;
-      padding: 9px 16px;
+      padding: 7px 15px;
       border-radius: 30px;
-      background: white;
-      color: #7054e8;
-      margin-bottom: 25px;
-      font-size: 14px;
+      background: #eee8ff;
+      color: #7654d6;
+      font-size: 13px;
+      margin-bottom: 20px;
     }
 
     h1 {
-      max-width: 800px;
-      margin: 0 auto 22px;
-      font-size: clamp(36px, 6vw, 62px);
-      line-height: 1.1;
+      max-width: 750px;
+      margin: auto;
+      font-size: clamp(36px, 6vw, 58px);
+      line-height: 1.12;
+      letter-spacing: -2px;
+    }
+
+    h1 span {
+      color: #805de0;
     }
 
     .hero p {
-      max-width: 600px;
-      margin: 0 auto 30px;
-      color: #625d73;
-      font-size: 18px;
-      line-height: 1.6;
+      max-width: 540px;
+      margin: 22px auto 28px;
+      color: #777184;
+      font-size: 17px;
     }
 
-    .main-button {
+    .button {
       display: inline-block;
-      border: none;
-      border-radius: 12px;
-      padding: 17px 28px;
-      background: #7054e8;
+      background: #7956d8;
       color: white;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
+      padding: 14px 25px;
+      border-radius: 12px;
       text-decoration: none;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: 0.2s;
     }
 
-    .main-button:hover {
-      opacity: 0.85;
+    .button:hover {
+      background: #6240bd;
+      transform: translateY(-2px);
     }
 
-    .section {
+    section {
       padding: 65px 8%;
+    }
+
+    .section-title {
       text-align: center;
+      font-size: 34px;
+      margin-bottom: 12px;
     }
 
-    .section h2 {
-      font-size: 32px;
-      margin-bottom: 15px;
+    .section-subtitle {
+      text-align: center;
+      color: #858091;
+      margin-bottom: 30px;
     }
 
-    .section-intro {
-      color: #777;
+    .categories {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
       margin-bottom: 35px;
     }
 
-    .cards {
+    .category {
+      border: 1px solid #e8e2f2;
+      background: white;
+      color: #625b70;
+      padding: 9px 17px;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+
+    .category.active,
+    .category:hover {
+      background: #7956d8;
+      color: white;
+      border-color: #7956d8;
+    }
+
+    .templates {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      max-width: 1000px;
-      margin: auto;
+      gap: 24px;
     }
 
-    .card {
+    .template-card {
+      border: 1px solid #eeeaf5;
+      border-radius: 17px;
+      overflow: hidden;
       background: white;
-      padding: 30px 20px;
-      border-radius: 18px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+      transition: 0.2s;
     }
 
-    .card .emoji {
-      font-size: 38px;
-      margin-bottom: 15px;
+    .template-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px #39246b12;
     }
 
-    .card h3 {
-      margin-bottom: 10px;
+    .preview {
+      height: 210px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
     }
 
-    .card p {
-      color: #777;
-      line-height: 1.5;
-      font-size: 14px;
-    }
-
-    .form-section {
-      background: white;
-      padding: 60px 20px;
+    .preview-inner {
+      width: 75%;
+      height: 165px;
+      border-radius: 7px;
+      padding: 17px;
+      box-shadow: 0 5px 20px #00000012;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       text-align: center;
     }
 
-    form {
-      max-width: 400px;
-      margin: 25px auto 0;
+    .preview-inner strong {
+      font-size: 19px;
+      line-height: 1.15;
     }
 
-    input {
-      width: 100%;
-      padding: 15px;
-      margin-bottom: 12px;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      font-size: 15px;
+    .preview-inner small {
+      margin-top: 9px;
+      font-size: 9px;
     }
 
-    form button {
-      width: 100%;
+    .preview-inner .decoration {
+      font-size: 27px;
+      margin-bottom: 7px;
     }
 
-    #message {
-      margin-top: 18px;
-      color: #39834b;
+    .pink { background: #f9e5ed; }
+    .pink .preview-inner { background: #fff8fa; color: #9b526f; }
+
+    .purple { background: #e8e0ff; }
+    .purple .preview-inner { background: #7654d6; color: white; }
+
+    .beige { background: #f3e9d8; }
+    .beige .preview-inner { background: #fffaf0; color: #715b3d; }
+
+    .blue { background: #dceeff; }
+    .blue .preview-inner { background: #ffffff; color: #32618d; }
+
+    .green { background: #e1eee5; }
+    .green .preview-inner { background: #315b48; color: white; }
+
+    .yellow { background: #fff0c9; }
+    .yellow .preview-inner { background: #fffdf4; color: #8a6420; }
+
+    .template-info {
+      padding: 18px;
+    }
+
+    .template-info h3 {
+      font-size: 17px;
+      margin-bottom: 5px;
+    }
+
+    .template-info p {
+      color: #858091;
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+
+    .template-link {
+      color: #7956d8;
+      font-size: 14px;
       font-weight: bold;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .features {
+      background: #faf9fd;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-top: 35px;
+    }
+
+    .feature {
+      background: white;
+      border: 1px solid #eeeaf5;
+      border-radius: 15px;
+      padding: 25px;
+    }
+
+    .feature-icon {
+      font-size: 27px;
+      margin-bottom: 12px;
+    }
+
+    .feature h3 {
+      margin-bottom: 8px;
+    }
+
+    .feature p {
+      color: #858091;
+      font-size: 14px;
+    }
+
+    .cta {
+      text-align: center;
+      background: #f5f0ff;
+      border-radius: 22px;
+      margin: 55px 8%;
+      padding: 50px 20px;
+    }
+
+    .cta p {
+      color: #777184;
+      margin: 12px auto 22px;
     }
 
     footer {
-      padding: 25px;
+      padding: 25px 8%;
       text-align: center;
-      color: #888;
+      color: #9993a5;
+      border-top: 1px solid #eeeaf5;
       font-size: 13px;
     }
 
-    .variant-switch {
-      margin-top: 28px;
-      font-size: 14px;
-    }
-
-    .variant-switch a {
-      color: #7054e8;
-      margin: 0 8px;
-    }
-
-    /* Внешний вид варианта B */
-
-    body.variant-b {
-      background: #191919;
-      color: white;
-    }
-
-    .variant-b header,
-    .variant-b .card,
-    .variant-b .form-section {
-      background: #242424;
-    }
-
-    .variant-b .logo,
-    .variant-b .variant-switch a {
-      color: #d8ff3e;
-    }
-
-    .variant-b nav a {
-      color: #ddd;
-    }
-
-    .variant-b .hero {
-      background: #191919;
-    }
-
-    .variant-b .label {
-      background: #d8ff3e;
-      color: #191919;
-    }
-
-    .variant-b .hero p,
-    .variant-b .card p,
-    .variant-b .section-intro {
-      color: #c4c4c4;
-    }
-
-    .variant-b .main-button {
-      background: #d8ff3e;
-      color: #191919;
-    }
-
-    .variant-b input {
-      background: #333;
-      color: white;
-      border-color: #555;
-    }
-
-    .variant-b footer {
-      color: #aaa;
-    }
-
-    @media (max-width: 650px) {
-      header {
-        padding: 18px 5%;
+    @media (max-width: 800px) {
+      .templates, .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
-
       nav a {
-        margin-left: 8px;
-        font-size: 12px;
+        margin-left: 10px;
       }
+    }
 
-      .hero {
-        padding: 65px 6%;
+    @media (max-width: 550px) {
+      header {
+        flex-direction: column;
+        gap: 12px;
       }
-
-      .cards {
+      nav a {
+        margin: 0 7px;
+      }
+      .templates, .feature-grid {
         grid-template-columns: 1fr;
       }
-
-      .section {
-        padding: 50px 6%;
+      section {
+        padding: 45px 6%;
       }
     }
   </style>
@@ -261,158 +311,224 @@
 <body>
 
   <header>
-    <div class="logo">Canva</div>
+    <div class="logo">designly.</div>
     <nav>
-      <a href="#features">Возможности</a>
-      <a href="#contact">Попробовать</a>
+      <a href="#templates">Шаблоны</a>
+      <a href="#features">Преимущества</a>
+      <a href="#start">Начать</a>
     </nav>
   </header>
 
   <main>
     <section class="hero">
-      <div class="label" id="label">Дизайн без сложностей</div>
+      <div class="tag">Творчество доступно каждому</div>
+      <h1>Красивый дизайн.<br><span>Без опыта. За минуты.</span></h1>
+      <p>
+        Создавай презентации, публикации и другие визуальные материалы
+        с помощью готовых шаблонов. Просто выбери понравившийся дизайн!
+      </p>
+      <a class="button" href="#templates">Выбрать шаблон</a>
+    </section>
 
-      <h1 id="headline">
-        Красивый дизайн. Без опыта. За минуты.
-      </h1>
-
-      <p id="description">
-        Создавай презентации, посты и резюме с помощью готовых шаблонов.
-        Выбирай понравившийся дизайн и адаптируй его под себя.
+    <section id="templates">
+      <h2 class="section-title">Популярные шаблоны</h2>
+      <p class="section-subtitle">
+        Выбери подходящий вариант и вдохновись идеями для своего дизайна
       </p>
 
-      <a href="#contact" class="main-button" id="cta">
-        Создать дизайн бесплатно
-      </a>
+      <div class="categories">
+        <button class="category active" data-filter="all">Все</button>
+        <button class="category" data-filter="social">Соцсети</button>
+        <button class="category" data-filter="presentation">Презентации</button>
+        <button class="category" data-filter="resume">Резюме</button>
+        <button class="category" data-filter="poster">Афиши</button>
+      </div>
 
-      <div class="variant-switch">
-        Версия сайта:
-        <a href="?variant=a">A</a>
-        <a href="?variant=b">B</a>
+      <div class="templates">
+
+        <article class="template-card" data-category="social">
+          <div class="preview pink">
+            <div class="preview-inner">
+              <div class="decoration">✿</div>
+              <strong>YOUR<br>BEAUTY</strong>
+              <small>BE YOURSELF EVERY DAY</small>
+            </div>
+          </div>
+          <div class="template-info">
+            <h3>Beauty-публикация</h3>
+            <p>Шаблон для социальных сетей</p>
+            <a class="template-link" href="#start">Выбрать шаблон →</a>
+          </div>
+        </article>
+
+        <article class="template-card" data-category="presentation">
+          <div class="preview purple">
+            <div class="preview-inner">
+              <div class="decoration">✦</div>
+              <strong>NEW<br>IDEAS</strong>
+              <small>CREATIVE PRESENTATION</small>
+            </div>
+          </div>
+          <div class="template-info">
+            <h3>Современная презентация</h3>
+            <p>Для учёбы и рабочих проектов</p>
+            <a class="template-link" href="#start">Выбрать шаблон →</a>
+          </div>
+        </article>
+
+        <article class="template-card" data-category="resume">
+          <div class="preview beige">
+            <div class="preview-inner">
+              <div class="decoration">◈</div>
+              <strong>MY<br>PORTFOLIO</strong>
+              <small>ABOUT ME · EXPERIENCE</small>
+            </div>
+          </div>
+          <div class="template-info">
+            <h3>Минималистичное резюме</h3>
+            <p>Аккуратное оформление опыта</p>
+            <a class="template-link" href="#start">Выбрать шаблон →</a>
+          </div>
+        </article>
+
+        <article class="template-card" data-category="social">
+          <div class="preview blue">
+            <div class="preview-inner">
+              <div class="decoration">☁</div>
+              <strong>DAILY<br>INSPIRATION</strong>
+              <small>NEW POST · NEW DAY</small>
+            </div>
+          </div>
+          <div class="template-info">
+            <h3>Пост для блога</h3>
+            <p>Нежный стиль для контента</p>
+            <a class="template-link" href="#start">Выбрать шаблон →</a>
+          </div>
+        </article>
+
+        <article class="template-card" data-category="poster">
+          <div class="preview green">
+            <div class="preview-inner">
+              <div class="decoration">✳</div>
+              <strong>LET'S<br>PARTY!</strong>
+              <small>YOU ARE INVITED</small>
+            </div>
+          </div>
+          <div class="template-info">
+            <h3>Афиша мероприятия</h3>
+            <p>Для событий и вечеринок</p>
+            <a class="template-link" href="#start">Выбрать шаблон →</a>
+          </div>
+        </article>
+
+        <article class="template-card" data-category="presentation">
+          <div class="preview yellow">
+            <div class="preview-inner">
+              <div class="decoration">✧</div>
+              <strong>MY<br>PROJECT</strong>
+              <small>IDEA · PLAN · RESULT</small>
+            </div>
+          </div>
+          <div class="template-info">
+            <h3>Презентация проекта</h3>
+            <p>Для защиты и новых идей</p>
+            <a class="template-link" href="#start">Выбрать шаблон →</a>
+          </div>
+        </article>
+
       </div>
     </section>
 
-    <section class="section" id="features">
-      <h2 id="section-title">Всё необходимое в одном месте</h2>
-      <p class="section-intro" id="section-intro">
-        Создавай визуальный контент для учёбы, работы и жизни.
-      </p>
+    <section class="features" id="features">
+      <h2 class="section-title">Почему designly?</h2>
+      <p class="section-subtitle">Всё необходимое для красивого результата</p>
 
-      <div class="cards">
-        <div class="card">
-          <div class="emoji">📊</div>
-          <h3>Презентации</h3>
-          <p>Оформляй учебные и рабочие проекты красиво и понятно.</p>
+      <div class="feature-grid">
+        <div class="feature">
+          <div class="feature-icon">✦</div>
+          <h3>Просто начать</h3>
+          <p>Не нужно быть дизайнером — используй готовые решения.</p>
         </div>
 
-        <div class="card">
-          <div class="emoji">📱</div>
-          <h3>Публикации</h3>
-          <p>Создавай яркие посты и истории для социальных сетей.</p>
+        <div class="feature">
+          <div class="feature-icon">◷</div>
+          <h3>Экономия времени</h3>
+          <p>Создавай визуальные материалы за несколько минут.</p>
         </div>
 
-        <div class="card">
-          <div class="emoji">🎨</div>
-          <h3>Творчество</h3>
-          <p>Экспериментируй с цветами, шрифтами и собственными идеями.</p>
+        <div class="feature">
+          <div class="feature-icon">♡</div>
+          <h3>Свой стиль</h3>
+          <p>Выбирай оформление и адаптируй его под свои идеи.</p>
         </div>
       </div>
     </section>
 
-    <section class="form-section" id="contact">
-      <h2 id="form-title">Попробуй создать свой первый дизайн</h2>
-      <p id="form-description">Оставь заявку в нашей учебной демонстрации.</p>
+    <section class="cta" id="start">
+      <h2 class="section-title">Готова попробовать?</h2>
+      <p>Оставь заявку на демонстрацию возможностей сервиса.</p>
 
       <form id="demo-form">
-        <input
-          type="text"
-          id="name"
-          placeholder="Твоё имя"
-          required
-        >
-
         <input
           type="email"
           id="email"
           placeholder="Твоя электронная почта"
           required
+          style="padding:14px; border:1px solid #ddd5ed; border-radius:10px; width:min(100%,300px); margin:5px;"
         >
-
-        <button class="main-button" type="submit" id="form-button">
-          Отправить заявку
-        </button>
+        <button class="button" type="submit">Отправить</button>
       </form>
 
-      <div id="message"></div>
+      <p id="form-message" aria-live="polite"></p>
     </section>
   </main>
 
   <footer>
-    Учебный проект по Performance-аналитике.
-    Не является официальным сайтом Canva.
+    © 2026 designly. Учебный демонстрационный проект.
   </footer>
 
   <script>
-    // Определяем, какую версию сайта открыл посетитель
-    const params = new URLSearchParams(window.location.search);
-    const variant = params.get("variant") === "b" ? "b" : "a";
+    window.dataLayer = window.dataLayer || [];
 
-    // Меняем текст и оформление для варианта B
-    if (variant === "b") {
-      document.body.classList.add("variant-b");
+    // Фиксируем просмотр страницы
+    window.dataLayer.push({
+      event: "page_variant_view",
+      ab_variant: "A"
+    });
 
-      document.getElementById("label").textContent =
-        "Твоя идея — твои правила";
+    // Фильтрация шаблонов по категориям
+    const categoryButtons = document.querySelectorAll(".category");
+    const templateCards = document.querySelectorAll(".template-card");
 
-      document.getElementById("headline").textContent =
-        "Твой вайб. Твои правила. Твой дизайн.";
+    categoryButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const filter = button.dataset.filter;
 
-      document.getElementById("description").textContent =
-        "Превращай идеи в визуал, который цепляет. Создавай контент, экспериментируй со стилями и выражай себя.";
+        categoryButtons.forEach(item => item.classList.remove("active"));
+        button.classList.add("active");
 
-      document.getElementById("cta").textContent =
-        "Прокачать свой визуал";
+        templateCards.forEach(card => {
+          card.style.display =
+            filter === "all" || card.dataset.category === filter
+              ? "block"
+              : "none";
+        });
+      });
+    });
 
-      document.getElementById("section-title").textContent =
-        "Создавай визуал по своим правилам";
-
-      document.getElementById("section-intro").textContent =
-        "От первой идеи до дизайна, которым хочется поделиться.";
-
-      document.getElementById("form-title").textContent =
-        "Готова показать свой стиль?";
-
-      document.getElementById("form-description").textContent =
-        "Оставь заявку в нашей учебной демонстрации.";
-
-      document.getElementById("form-button").textContent =
-        "Начать творить";
-    }
-
-    // Фиксируем демонстрационную отправку формы
+    // Демонстрационная форма
     document.getElementById("demo-form").addEventListener("submit", function(event) {
       event.preventDefault();
 
-      const name = document.getElementById("name").value;
-
-      // Позже подключим Google Analytics и Яндекс Метрику
-      window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
         event: "demo_form_submit",
-        ab_variant: variant
+        ab_variant: "A"
       });
 
-      document.getElementById("message").textContent =
-        "Спасибо, " + name + "! Тестовая заявка отправлена.";
+      document.getElementById("form-message").textContent =
+        "Спасибо! Это демонстрационная форма — данные никуда не отправляются.";
 
       this.reset();
-    });
-
-    // Запоминаем вариант страницы для будущей аналитики
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      event: "page_variant_view",
-      ab_variant: variant
     });
   </script>
 
